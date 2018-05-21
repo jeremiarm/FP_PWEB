@@ -8,10 +8,6 @@ use Auth;
 
 class LoginController extends Controller
 {
-	public function username(){
-		return 'username';
-	}
-	
     public function index()
     {
     	//dd($request->all());
