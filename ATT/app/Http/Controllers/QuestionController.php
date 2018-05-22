@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use Auth;
 
 class QuestionController extends Controller
 {
 	public function create()
 	{
-		return view('questionmaker');
+		if (Auth::check()) return view('questionmaker');
 	}
 	public function store(Request $request)
 	{
@@ -17,12 +18,11 @@ class QuestionController extends Controller
 		$data = $this->validate($request, [
 			'soal'=>'required',
 			'explanation'=> 'required',
-			'creator_username' => 'required',
 			]);
 
 		$question->soal = $data['soal'];
         $question->explanation = $data['explanation'];
-        $question->creator_username = $data['creator_username'];
+        $question->creator_username = Auth::user()->username;
         $question->save();
 		return redirect('/home')->with('success', 'New question has been created!');
 	}

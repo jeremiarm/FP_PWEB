@@ -22,10 +22,7 @@
             <label>Question Explanation:</label>
             <input type="text" class="form-control" name="explanation" />
         </div>
-        <div class="form-group">
-            <label>Username Creator:</label>
-            <input type="text" class="form-control" name="creator_username" />
-        </div>
+        
         <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
