@@ -22,7 +22,7 @@ class LoginController extends Controller
     		'password' => 'required',
     	]);
     	if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            return redirect('/');
+            return view('welcome');
         }
         else
         {

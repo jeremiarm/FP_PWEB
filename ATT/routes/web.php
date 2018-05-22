@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return App\Model\User::all();
 });
+
+Route::get('/testing','RegisterController@store');
 
 Route::get('/login', 'LoginController@index');
 Route::post('/login/checklogin', 'LoginController@checklogin');
