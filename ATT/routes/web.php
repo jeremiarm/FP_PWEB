@@ -12,12 +12,9 @@
 */
 
 Route::get('/', function () {
-    return App\Model\User::all();
+    return view('welcome');
 });
 
-Route::get('/testing','RegisterController@store');
+Auth::routes();
 
-Route::get('/login', 'LoginController@index');
-Route::post('/login/checklogin', 'LoginController@checklogin');
-Route::get('/login/successlogin', 'LoginController@successlogin');
-Route::get('/login/logout', 'LoginController@logout');
+Route::get('/home', 'HomeController@index')->name('home');
