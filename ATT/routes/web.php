@@ -25,14 +25,19 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-// Password Reset Routes...
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
 
 // Create Questions Routes..
 Route::get('/create','QuestionController@create');
 Route::post('/create','QuestionController@store');
+
+// Pick And Answer Questions Routes...
+Route::get('/pick','AnswerController@pick');
+Route::get('/answer/{id}', ['uses' =>'AnswerController@take' ,'as' => 'choice']);
+Route::post('/answer/{id}', ['uses' =>'AnswerController@chosen' ,'as' => 'answer']);
+
+// View and post comment
+Route::get('/discussion','CommentController@view');
+Route::post('/discussion','CommentController@comment');
 
 Route::get('/home', 'HomeController@index')->name('home');

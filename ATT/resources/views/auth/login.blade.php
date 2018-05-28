@@ -8,6 +8,11 @@
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
+                    @if (session('gagal'))
+                        <div class="alert alert-danger">
+                            {{ session('gagal') }}
+                        </div>
+                    @endif
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -55,9 +60,7 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+                                
                             </div>
                         </div>
                     </form>
