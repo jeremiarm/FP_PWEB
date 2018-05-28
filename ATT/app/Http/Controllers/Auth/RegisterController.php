@@ -72,4 +72,8 @@ class RegisterController extends Controller
             'currprobsolv' =>0,
         ]);
     }
+
+    public function showRegistrationForm(){
+        return view('register');
+    }
 }

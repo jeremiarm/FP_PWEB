@@ -8,7 +8,7 @@
 <body>
 	@include('semantic-ui.navbar')
 	@yield('content')
-	<!--@include('semantic-ui.footer') -->
+	<!-- @include('semantic-ui.footer') -->
 </body>
 <script type="text/javascript">
 	@yield('script')
